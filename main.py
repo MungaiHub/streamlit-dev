@@ -37,8 +37,7 @@ st.metric(label="Discount", value="45%", delta="-5%")
 st.metric(label="Returns", value="120", delta="+20", delta_color="inverse")
 
 
-import pandas as pd
-import streamlit as st
+
 
 # Example values
 total_price = 500000
@@ -62,3 +61,16 @@ with col3:
 st.image("data/photo.jpg", caption="my image", width=100)
 st.audio("data/audio.mp3")
 st.video("data/video.mp4")
+
+state=st.checkbox("kenyan", value=True)
+if state:
+    st.write("jambo kenya")
+else:
+    pass
+radioButton=st.radio("which country do yo live?", options=("UK","US","KENYA"))
+
+def btn_click():
+    st.write("✅ Button was clicked!")
+btn=st.button("click me!", on_click=btn_click)
+select=st.selectbox("what is your favorite car?", options=("AUDI","BMW","VOLVO","FERRARI"))
+st.write(select)
