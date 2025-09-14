@@ -57,3 +57,8 @@ with col2:
 
 with col3:
     st.metric(label="Ratings", value=rating, delta="-0.3", delta_color="inverse")
+
+
+st.image("data/photo.jpg", caption="my image", width=100)
+st.audio("data/audio.mp3")
+st.video("data/video.mp4")
