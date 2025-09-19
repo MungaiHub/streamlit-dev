@@ -90,3 +90,10 @@ if images is not None:
 myvideo=st.file_uploader("please upload a video",type="mp4")
 if myvideo is not None:
     st.video(myvideo)
+
+
+val=st.slider("this is the slider")#has parameters like min_value,max_value and value
+val=st.text_input("enter in your course title", max_chars=60)
+textArea=st.text_area("your course description") #you can write your essay or paragraph
+date=st.date_input("enter your registration date")
+timer=st.time_input("set timer")
