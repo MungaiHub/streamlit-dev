@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import time as ts
+from datetime import time
 
 # st.title("Hi! i am the streamlit web app")
 # st.header("i am the header")
@@ -8,7 +10,7 @@ import pandas as pd
 
 
 # st.markdown("# Heading 1")
-# st.markdown("## Heading 2")
+#st.markdown("## Heading 2")
 # st.markdown("### Heading 3")
 # st.markdown("> 💡 Pro Tip: Use filters on the sidebar to refine your data analysis.") #blockquotes
 # st.markdown("![Alt Text](https://streamlit.io/images/brand/streamlit-mark-color.png)") #to add an image
@@ -96,4 +98,23 @@ val=st.slider("this is the slider")#has parameters like min_value,max_value and 
 val=st.text_input("enter in your course title", max_chars=60)
 textArea=st.text_area("your course description") #you can write your essay or paragraph
 date=st.date_input("enter your registration date")
-timer=st.time_input("set timer")
+timer=st.time_input("set timer", value=time(0,0,0))
+bar=st.progress(0)
+for i in range(10):
+    bar.progress((i+1)*10)
+    ts.sleep(1)
+
+# st.markdown("## User Registration Form")
+# form=st.form("form 1")
+# form.text_input("First Name")
+# form.form_submit_button("submit")
+
+# another method to create form:
+with st.form("form 2"):
+    col1,col2=st.columns(2)
+    col1.text_input("First Name")
+    col2.text_input("Last Name")
+    st.text_input("Email Address")
+    st.text_input("Password")
+    st.text_input("Confirm Password")
+    st.form_submit_button("submit")
