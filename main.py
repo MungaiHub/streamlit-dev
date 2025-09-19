@@ -99,22 +99,32 @@ val=st.text_input("enter in your course title", max_chars=60)
 textArea=st.text_area("your course description") #you can write your essay or paragraph
 date=st.date_input("enter your registration date")
 timer=st.time_input("set timer", value=time(0,0,0))
-bar=st.progress(0)
-for i in range(10):
-    bar.progress((i+1)*10)
-    ts.sleep(1)
+# bar=st.progress(0)
+# for i in range(10):
+#     bar.progress((i+1)*10)
+#     ts.sleep(1)
 
-# st.markdown("## User Registration Form")
+st.markdown("<h1 style='text-align:center;'>User Registration </h1>", unsafe_allow_html=True)
 # form=st.form("form 1")
 # form.text_input("First Name")
 # form.form_submit_button("submit")
 
 # another method to create form:
-with st.form("form 2"):
+with st.form("form 2",clear_on_submit=True):
     col1,col2=st.columns(2)
-    col1.text_input("First Name")
-    col2.text_input("Last Name")
+    f_name=col1.text_input("First Name")
+    l_name=col2.text_input("Last Name")
     st.text_input("Email Address")
     st.text_input("Password")
     st.text_input("Confirm Password")
-    st.form_submit_button("submit")
+    day,month,year=st.columns(3)
+    day.text_input("Day")
+    month.text_input("Month")
+    year.text_input("year")
+    s_state=st.form_submit_button("submit")
+
+    if s_state:
+        if f_name == "" and l_name == "":
+            st.warning("please fill the above fields")
+        else:
+            st.success("submitted successfully")
